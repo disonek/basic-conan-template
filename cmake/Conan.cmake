@@ -14,15 +14,10 @@ macro(run_conan)
     https://api.bintray.com/conan/bincrafters/public-conan)
 
   conan_cmake_run(
-    REQUIRES
-    ${CONAN_EXTRA_REQUIRES}
-    gtest/1.10.0
-    # boost/1.71.0
-    OPTIONS
-    # gtest:build_gmock=False
-    ${CONAN_EXTRA_OPTIONS}
-    BASIC_SETUP
-    CMAKE_TARGETS # individual targets to link to
-    BUILD
-    missing)
+      CONANFILE conanfile.py
+      BASIC_SETUP
+      CMAKE_TARGETS # individual targets to link to
+      BUILD
+      missing)
+
 endmacro()
